@@ -61,3 +61,5 @@ Empaqueta `guardrail_checker.py` como una función Lambda simple, invocada por u
 ## Más contexto
 
 Ver la guía completa: `guia-diseno-endurecimiento-skills-ia.md` (de la misma charla) para los principios generales de diseño y endurecimiento de skills de IA.
+
+Ver también la [checklist final](checklist-final.md) para verificar los guardrails de un skill de IA antes de llevarlo a producción.
