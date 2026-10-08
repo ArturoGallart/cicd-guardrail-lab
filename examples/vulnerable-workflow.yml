@@ -1,0 +1,24 @@
+name: deploy
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Tag a desplegar"
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Problema 1: referencia mutable por tag, no por hash fijo
+      - uses: some-org/some-deploy-action@v2
+
+      # Problema 2: uso de "latest" para una herramienta de despliegue
+      - name: Instalar CLI de despliegue
+        run: curl -sL https://example.com/install-cli.sh | bash -s -- latest
+
+      # Problema 3: entrada de usuario interpolada directamente en shell
+      - name: Desplegar release
+        run: |
+          echo "Desplegando ${{ github.event.inputs.release_tag }}"
+          ./deploy.sh --tag=${{ github.event.inputs.release_tag }}
